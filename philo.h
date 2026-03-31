@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.h                                             :+:      :+:    :+:   */
+/*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 16:10:59 by smedenec          #+#    #+#             */
-/*   Updated: 2026/03/28 16:13:46 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/03/31 13:31:07 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INIT_H
-# define INIT_H
+#ifndef PHILO_H
+# define PHILO_H
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
+#include "struct.h"
 
+//utils
+int		ft_atoi(const char *str);
+void	ft_putnbr(int n);
 
 #endif

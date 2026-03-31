@@ -9,10 +9,10 @@ NONE = \033[0m
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-NAME = philosopher
+NAME = philo
 OBJDIR = obj
 
-SRCS = start.c \
+SRCS = src/utils.c src/start.c \
 
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 

@@ -1,8 +1,11 @@
 un philo : un ou plusieurs en entree
 one philo = one fork
 one philo = one thread
+Forks must be used by only one philosopher at a time → mutexes
 state = thinking, sleeping, or eating
 eat = with 2 forks
 philo do : < thinking, (take 2 forks), eating, (drop 2 forks), sleeping > in this order, in loop until one philo dies of starvation
 philo do not comunicate with others
 
+Objectifs :
+Creer un thread qui affiche Hello et ce detruit tout seul
