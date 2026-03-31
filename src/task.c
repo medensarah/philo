@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct.h                                           :+:      :+:    :+:   */
+/*   task.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/31 11:21:24 by smedenec          #+#    #+#             */
-/*   Updated: 2026/03/31 14:58:15 by smedenec         ###   ########.fr       */
+/*   Created: 2026/03/31 13:57:57 by smedenec          #+#    #+#             */
+/*   Updated: 2026/03/31 14:02:31 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_H
-# define STRUCT_H
+#include "../philo.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
-#include <pthread.h>
-#include <limits.h>
-#include <sys/time.h>
-
-typedef struct s_input
+void	*boulot_dodo(void *arg)
 {
-	int	nbr_philos;
-	int	time_to_die;
-	int	time_to_eat;
-	int	time_to_sleep;
-	int	nb_must_eat;
-}	t_input;
+	t_philo *philo;
 
-typedef struct s_philo
+	philo = (t_philo *)arg;
+	hello(philo);
+	return (NULL);
+}
+
+void	hello(t_philo *philo)
 {
-	int	id;
-	pthread_t thread;
-}	t_philo;
+	int id;
 
-#endif
+	id = philo->id;
+	write(1, "Hello, philosopher number ", 26);
+	ft_putnbr(id);
+	write(1, "\n", 1);
+}
