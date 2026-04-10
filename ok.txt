@@ -1,4 +1,5 @@
 un philo : un ou plusieurs en entree
+Toujours prendre Mutex 1 puis Mutex 2, jamais l’inverse.
 one philo = one fork
 one philo = one thread
 Forks must be used by only one philosopher at a time → mutexes

@@ -17,7 +17,7 @@
 
 //main
 void	launch_thread(t_input *input);
-void	init(t_input *input, int ac, char **av);
+void	init_input(t_data *data, int ac, char **av);
 int		verify_input(int ac, char **av);
 
 //task

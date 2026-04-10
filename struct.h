@@ -21,6 +21,15 @@
 #include <limits.h>
 #include <sys/time.h>
 
+typedef struct s_data
+{
+	t_input input;
+	t_philo *philos;
+	pthread_mutex_t *forks;
+	pthread_mutex_t print_mutex;
+}	t_data;
+
+
 typedef struct s_input
 {
 	int	nbr_philos;
@@ -34,6 +43,7 @@ typedef struct s_philo
 {
 	int	id;
 	pthread_t thread;
+	t_data *data;
 }	t_philo;
 
 #endif

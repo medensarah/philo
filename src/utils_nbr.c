@@ -87,6 +87,7 @@ int	is_only_zero(char *str)
 		i++;
 	while (str[i])
 	{
+
 		if (str[i] >= '1' && str[i] <= '9')
 			return (0);
 		i++;
