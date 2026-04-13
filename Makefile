@@ -12,7 +12,8 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = philo
 OBJDIR = obj
 
-SRCS = src/main.c src/utils_nbr.c src/task.c \
+SRCS = src/main.c src/task.c src/init.c \
+		src/parsing/check_input.c src/parsing/utils_nbr.c \
 
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 

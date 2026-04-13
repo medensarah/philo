@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 10:20:29 by smedenec          #+#    #+#             */
-/*   Updated: 2026/03/31 18:44:05 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/10 21:37:49 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ int	is_only_zero(char *str)
 		i++;
 	while (str[i])
 	{
-
 		if (str[i] >= '1' && str[i] <= '9')
 			return (0);
 		i++;

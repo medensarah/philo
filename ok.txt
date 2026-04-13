@@ -9,4 +9,4 @@ philo do : < thinking, (take 2 forks), eating, (drop 2 forks), sleeping > in thi
 philo do not comunicate with others
 
 Objectifs :
-Creer un thread qui affiche Hello et ce detruit tout seul
+Creer un thread qui affiche Hello et se detruit tout seul

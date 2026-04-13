@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 13:57:57 by smedenec          #+#    #+#             */
-/*   Updated: 2026/03/31 14:02:31 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/10 21:38:37 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*boulot_dodo(void *arg)
 {
-	t_philo *philo;
+	t_philo	*philo;
 
 	philo = (t_philo *)arg;
 	hello(philo);
@@ -23,7 +23,7 @@ void	*boulot_dodo(void *arg)
 
 void	hello(t_philo *philo)
 {
-	int id;
+	int	id;
 
 	id = philo->id;
 	write(1, "Hello, philosopher number ", 26);
