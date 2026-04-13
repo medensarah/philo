@@ -6,17 +6,17 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 13:59:45 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/12 23:55:59 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/14 00:15:23 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-void launch_thread(t_input *input)
+void	launch_thread(t_input *input)
 {
-	int	i;
-	int	n;
-	t_philo philo[input->nbr_philos];
+	int		i;
+	int		n;
+	t_philo	philo[input->nbr_philos];
 
 	i = 0;
 	n = input->nbr_philos;
@@ -35,11 +35,13 @@ void launch_thread(t_input *input)
 
 int	main(int ac, char **av)
 {
-	t_data data;
+	t_data	data;
 
 	if (!verify_input(ac, av))
 		return (1);
+
 	init_input(&data, ac, av);
+	init_data(&data);
 	if (!init_forks(&data))
 		return (error(0), 1);
 	if (!init_philos(&data))

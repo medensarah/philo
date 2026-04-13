@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 23:46:33 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/13 04:17:27 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/14 00:26:09 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,21 @@ void	init_input(t_data *data, int ac, char **av)
 		data->input.nb_must_eat = -1;
 }
 
+void	init_data(t_data *data)
+{
+	data->dead = 0;
+	pthread_mutex_init(&data->dead_mutex, NULL);
+	pthread_mutex_init(&data->print_mutex, NULL);
+	if (data->input.nb_must_eat == -1)
+		data->limit_mode = 0;
+	else
+		data->limit_mode = 1;
+
+	data->start_time = 0;
+
+
+}
+
 int	init_forks(t_data *data)
 {
 	int	i;
@@ -39,7 +54,7 @@ int	init_forks(t_data *data)
 	return (1);
 }
 
-int init_philos(t_data *data)
+int	init_philos(t_data *data)
 {
 	int	i;
 	int	n;

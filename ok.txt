@@ -10,3 +10,8 @@ philo do not comunicate with others
 
 Objectifs :
 Creer un thread qui affiche Hello et se detruit tout seul
+
+INIT DATA
+FREE
+ROUTINE
+PTHREAD QUI VERIF MORT

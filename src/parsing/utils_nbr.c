@@ -6,11 +6,11 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 10:20:29 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/10 21:37:49 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/13 22:31:43 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo.h"
+#include "../../philo.h"
 
 int	ft_atoi(char *str)
 {
