@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 13:57:57 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/14 09:09:22 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/14 09:51:28 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,36 @@ void	*boulot_dodo(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
+	if (philo->data->input.nbr_philos == 1)
+		return (philo_alone(philo));
+	if (philo->id % 2 == 0)
+		ft_usleep(1, philo->data);
+	while (1)
+	{
+		if (philo->data->dead == 1)
+			break ;
+		spagetti(philo);
+		if (philo->data->dead == 1)
+			break ;
+		dodo(philo);
+		if (philo->data->dead == 1)
+			break ;
+		gamberge(philo);
+	}
 	return (NULL);
 }
 
-void	check_death(t_philo *philo)
+void	spaghetti(t_philo *philo)
 {
-	int	id;
+	write(1, "eat\n", 4);
+}
 
-	id = philo->id;
-	ft_putnbr(id);
-	write(1, "\n", 1);
+void	dodo(t_philo *philo)
+{
+	write(1, "sleep\n", 4);
+}
+
+void	gamberge(t_philo *philo)
+{
+	write(1, "think\n", 4);
 }

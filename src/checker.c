@@ -6,10 +6,14 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 07:05:22 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/14 07:05:39 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/14 09:20:03 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-//checker
+void	*check_death(t_data *data)
+{
+	write(1, "mort\n", 5);
+	return (NULL);
+}
