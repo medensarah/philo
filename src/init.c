@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 23:46:33 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/14 00:26:09 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/14 03:09:07 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,7 @@ void	init_data(t_data *data)
 		data->limit_mode = 0;
 	else
 		data->limit_mode = 1;
-
-	data->start_time = 0;
-
-
+	data->start_time = get_time();
 }
 
 int	init_forks(t_data *data)

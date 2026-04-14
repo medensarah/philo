@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 13:59:45 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/14 00:15:23 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/14 02:37:30 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int	main(int ac, char **av)
 
 	if (!verify_input(ac, av))
 		return (1);
-
 	init_input(&data, ac, av);
 	init_data(&data);
 	if (!init_forks(&data))
