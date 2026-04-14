@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   launch.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/31 13:59:45 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/14 06:53:11 by smedenec         ###   ########.fr       */
+/*   Created: 2026/04/14 06:51:35 by smedenec          #+#    #+#             */
+/*   Updated: 2026/04/14 06:52:40 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-int	main(int ac, char **av)
+void	launch_threads(t_input *input)
 {
-	t_data	data;
+	int		i;
+	int		n;
+	t_philo	philo[input->nbr_philos];
 
-	if (!verify_input(ac, av))
-		return (1);
-	init_input(&data, ac, av);
-	init_data(&data);
-	if (!init_forks(&data))
-		return (error(0), free_data(&data), 1);
-	if (!init_philos(&data))
-		return (error(0), free_data(&data), 1);
-	// launch_threads(&input);
-	free_data(&data);
-	write(1, "END MAIN\n", 9);
-	return (0);
+	i = 0;
+	n = input->nbr_philos;
+	while (i < n)
+	{
+		philo[i].id = i + 1;
+		pthread_create(&philo[i].thread, NULL, boulot_dodo, &philo[i]);
+		i++;
+	}
+	write(1, "END CREATE\n", 11);
+	i = 0;
+	while (i < n)
+		pthread_join(philo[i++].thread, NULL);
+	write(1, "END JOIN\n", 9);
 }
