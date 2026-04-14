@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 07:04:34 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/14 07:04:37 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/14 08:13:46 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	err(int e)
 		write(2, "Error: number cannot be zero\n", 29);
 	else if (e == 5)
 		write(2, "Error: too much philos in input (>200)\n", 38);
+	else if (e == 6)
+		write(2, "Error pthread\n", 14);
 	else
 		write(2, "Error malloc\n", 13);
 }

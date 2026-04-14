@@ -6,29 +6,65 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 07:08:17 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/14 07:08:20 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/14 08:15:32 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-void	launch_threads(t_input *input)
+int	launch_threads(t_data *data)
 {
-	int		i;
-	int		n;
-	t_philo	philo[input->nbr_philos];
+	int	i;
+	int	n;
+	int	j;
 
 	i = 0;
-	n = input->nbr_philos;
+	n = data->input.nbr_philos;
 	while (i < n)
 	{
-		philo[i].id = i + 1;
-		pthread_create(&philo[i].thread, NULL, boulot_dodo, &philo[i]);
+		if (pthread_create(&data->philos[i].thread, NULL,
+				&boulot_dodo, &data->philos[i]) != 0)
+		{
+			data->dead = 1;
+			j = 0;
+			while (j < i)
+				pthread_join(data->philos[j++].thread, NULL);
+			return (err(6), 0);
+		}
 		i++;
 	}
-	write(1, "END CREATE\n", 11);
-	i = 0;
-	while (i < n)
-		pthread_join(philo[i++].thread, NULL);
-	write(1, "END JOIN\n", 9);
+	if (!launch_checker(data))
+		return (0);
+	return (1);
 }
+
+int	launch_checker(t_data *data)
+{
+	int	i;
+	int	n;
+
+	n = data->input.nbr_philos;
+	if (pthread_create(&data->checker, NULL,
+			&check_death, data) != 0)
+	{
+		data->dead = 1;
+		i = 0;
+		while (i < n)
+			pthread_join(data->philos[i++].thread, NULL);
+		return (err(6), 0);
+	}
+	return (1);
+}
+
+void	join_threads(t_data *data)
+{
+	int	i;
+	int	n;
+
+	i = 0;
+	n = data->input.nbr_philos;
+	while (i < n)
+		pthread_join(data->philos[i++].thread, NULL);
+	pthread_join(data->checker, NULL);
+}
+

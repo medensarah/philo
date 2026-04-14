@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 11:21:24 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/14 07:10:13 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/14 07:48:15 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_data
 	pthread_mutex_t	dead_mutex;
 	int				limit_mode;
 	long			start_time;
+	pthread_t		checker;
 }	t_data;
 
 typedef struct s_input

@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 13:59:45 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/14 07:11:53 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/14 08:17:06 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ int	main(int ac, char **av)
 		return (free_data(&data), 1);
 	if (!init_philos(&data))
 		return (free_data(&data), 1);
-	// launch_threads(&input);
+	if (!launch_threads(&data))
+		return (free_data(&data), 1);
+	join_threads(&data);
 	free_data(&data);
-	write(1, "END MAIN\n", 9);
 	return (0);
 }
