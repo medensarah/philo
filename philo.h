@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 16:10:59 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/14 08:16:27 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/14 09:00:52 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,21 @@ int		init_philos(t_data *data);
 int		launch_threads(t_data *data);
 int		launch_checker(t_data *data);
 void	join_threads(t_data *data);
-
 //task
 void	*boulot_dodo(void *arg);
 void	check_death(t_philo *philo);
 
 ////////////////// UTILS //////////
 
-//utils
+//time
 long	get_time(void);
+void	ft_usleep(long milisec, t_data *data);
 //free
 void	free_data(t_data *data);
 
 ////////////////// PARSING ////////
 
-//utils_nbr
+//nbr
 int		ft_atoi(char *str);
 void	ft_putnbr(int n);
 int		is_non_digit(char *str);

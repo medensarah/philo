@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 07:08:17 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/14 08:15:32 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/14 09:02:10 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,3 @@ void	join_threads(t_data *data)
 		pthread_join(data->philos[i++].thread, NULL);
 	pthread_join(data->checker, NULL);
 }
-

@@ -6,11 +6,11 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 23:46:33 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/14 06:37:42 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/14 08:51:01 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philo.h"
+#include "../../philo.h"
 
 void	free_data(t_data *data)
 {
