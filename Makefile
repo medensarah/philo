@@ -13,7 +13,8 @@ NAME = philo
 OBJDIR = obj
 
 SRCS = src/main.c src/task.c src/init.c src/utils.c src/free.c \
-		src/launch.c src/parsing/check_input.c src/parsing/utils_nbr.c \
+		src/thread.c src/parsing/verify.c src/parsing/utils_nbr.c \
+		src/checker.c \
 
 OBJS = $(SRCS:%.c=$(OBJDIR)/%.o)
 

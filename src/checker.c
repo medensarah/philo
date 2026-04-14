@@ -1,31 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/31 13:59:45 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/14 07:11:53 by smedenec         ###   ########.fr       */
+/*   Created: 2026/04/14 07:05:22 by smedenec          #+#    #+#             */
+/*   Updated: 2026/04/14 07:05:39 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-int	main(int ac, char **av)
-{
-	t_data	data;
-
-	if (!verify_input(ac, av))
-		return (1);
-	init_input(&data, ac, av);
-	init_data(&data);
-	if (!init_forks(&data))
-		return (free_data(&data), 1);
-	if (!init_philos(&data))
-		return (free_data(&data), 1);
-	// launch_threads(&input);
-	free_data(&data);
-	write(1, "END MAIN\n", 9);
-	return (0);
-}
+//checker

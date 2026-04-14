@@ -6,20 +6,20 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 11:21:24 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/13 23:27:59 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/14 07:10:13 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
-#include <pthread.h>
-#include <limits.h>
-#include <sys/time.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <string.h>
+# include <pthread.h>
+# include <limits.h>
+# include <sys/time.h>
 
 typedef struct s_data
 {
