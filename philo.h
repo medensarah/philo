@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 16:10:59 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/15 08:39:05 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/15 09:30:00 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	*boulot_dodo(void *arg);
 void	spaghetti(t_philo *philo);
 void	dodo(t_philo *philo);
 void	gamberge(t_philo *philo);
-void	print_action(t_philo *philo, char *msg);
+void	*philo_alone(t_philo *philo);
 //checker
 void	*check_death(void *arg);
 
@@ -42,6 +42,8 @@ long	get_time(void);
 void	ft_usleep(long milisec, t_data *data);
 //free
 void	free_data(t_data *data);
+//print
+void	print(t_philo *philo, char *msg);
 
 ////////////////// PARSING ////////
 

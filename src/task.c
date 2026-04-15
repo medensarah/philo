@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 13:57:57 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/15 08:48:28 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/15 09:35:21 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*boulot_dodo(void *arg)
 
 	philo = (t_philo *)arg;
 	if (philo->data->input.nbr_philos == 1)
-		return (NULL); // return (philo_alone(philo), NULL); A FAIRE
+		return (philo_alone(philo));
 	if (philo->id % 2 == 0)
 		ft_usleep(1, philo->data);
 	while (1)
@@ -37,27 +37,37 @@ void	*boulot_dodo(void *arg)
 }
 
 void	spaghetti(t_philo *philo)
-{
-	print_action(philo, "is eating");
+{	
+	print(philo, "is sleeping");
     ft_usleep(200, philo->data);
 }
 
 void	dodo(t_philo *philo)
 {
-	print_action(philo, "is sleeping");
+	print(philo, "is sleeping");
     ft_usleep(200, philo->data);
 }
 
 void	gamberge(t_philo *philo)
 {
-	print_action(philo, "is thinking");
+	print(philo, "is thinking");
     ft_usleep(200, philo->data);
 }
 
-void	print_action(t_philo *philo, char *msg)
+void	*philo_alone(t_philo *philo)
 {
     pthread_mutex_lock(&philo->data->print_mutex);
-    if (!philo->data->dead)
-        printf("Philo %d %s\n", philo->id, msg);
+    printf("%ld %d has taken a fork\n",
+        get_time() - philo->data->start_time, philo->id);
     pthread_mutex_unlock(&philo->data->print_mutex);
+    ft_usleep(philo->data->input.time_to_die, philo->data);
+    pthread_mutex_lock(&philo->data->dead_mutex);
+    if (!philo->data->dead)
+        philo->data->dead = 1;
+    pthread_mutex_unlock(&philo->data->dead_mutex);
+    pthread_mutex_lock(&philo->data->print_mutex);
+    printf("%ld %d died\n",
+        get_time() - philo->data->start_time, philo->id);
+    pthread_mutex_unlock(&philo->data->print_mutex);
+    return (NULL);
 }
