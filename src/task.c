@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 13:57:57 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/15 09:35:21 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/15 12:17:01 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,22 +36,33 @@ void	*boulot_dodo(void *arg)
 	return (NULL);
 }
 
-void	spaghetti(t_philo *philo)
-{	
-	print(philo, "is sleeping");
-    ft_usleep(200, philo->data);
+void    spaghetti(t_philo *philo)
+{
+    pthread_mutex_lock(philo->left_fork);
+    print(philo, "has taken a fork");
+    pthread_mutex_lock(philo->right_fork);
+    print(philo, "has taken a fork");
+    pthread_mutex_lock(&philo->meal_mutex);
+    philo->last_meal_time = get_time();
+    pthread_mutex_unlock(&philo->meal_mutex);
+    print(philo, "is eating");
+    ft_usleep(philo->data->input.time_to_eat, philo->data);
+    pthread_mutex_lock(&philo->meal_mutex);
+    philo->meals_eaten++;
+    pthread_mutex_unlock(&philo->meal_mutex);
+	pthread_mutex_unlock(philo->left_fork);
+    pthread_mutex_unlock(philo->right_fork);
 }
 
 void	dodo(t_philo *philo)
 {
 	print(philo, "is sleeping");
-    ft_usleep(200, philo->data);
+    ft_usleep(philo->data->input.time_to_sleep, philo->data);
 }
 
 void	gamberge(t_philo *philo)
 {
 	print(philo, "is thinking");
-    ft_usleep(200, philo->data);
 }
 
 void	*philo_alone(t_philo *philo)

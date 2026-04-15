@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/28 16:10:59 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/15 09:30:00 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/15 13:00:55 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	gamberge(t_philo *philo);
 void	*philo_alone(t_philo *philo);
 //checker
 void	*check_death(void *arg);
+int     has_philo_died(t_data *data, t_philo *philo);
+int     all_philos_ate_enough(t_data *data);
 
 ////////////////// UTILS //////////
 
