@@ -6,14 +6,17 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 07:05:22 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/14 09:20:03 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/15 08:53:51 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philo.h"
 
-void	*check_death(t_data *data)
+void	*check_death(void *arg)
 {
-	write(1, "mort\n", 5);
+	t_data	*data;
+
+	data = (t_data *)arg;
+	(void)data;
 	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 07:08:17 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/14 09:02:10 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/15 08:28:27 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	launch_threads(t_data *data)
 		}
 		i++;
 	}
+	usleep(100);
 	if (!launch_checker(data))
 		return (0);
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 07:04:34 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/14 08:13:46 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/15 08:55:50 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	instruction(void)
 	write(2,
 		"Usage: ./philo number_of_philosophers time_to_die time_to_eat "
 		"time_to_sleep [number_of_times_each_philosopher_must_eat]\n",
-		132);
+		121);
 }
 
 void	err(int e)

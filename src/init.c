@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 23:46:33 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/14 07:11:39 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/15 08:49:04 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	init_forks(t_data *data)
 	n = data->input.nbr_philos;
 	data->forks = malloc(sizeof(pthread_mutex_t) * n);
 	if (!data->forks)
-		return (error(0), 0);
+		return (err(0), 0);
 	while (i < n)
 		pthread_mutex_init(&data->forks[i++], NULL);
 	return (1);
@@ -60,7 +60,7 @@ int	init_philos(t_data *data)
 	n = data->input.nbr_philos;
 	data->philos = malloc(sizeof(t_philo) * n);
 	if (!data->philos)
-		return (error(0), 0);
+		return (err(0), 0);
 	while (i < n)
 	{
 		data->philos[i].id = i + 1;
