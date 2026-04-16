@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 11:21:24 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/15 08:45:14 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/16 07:47:00 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@
 # include <limits.h>
 # include <sys/time.h>
 
-typedef struct s_input  t_input;
-typedef struct s_philo  t_philo;
-typedef struct s_data   t_data;
+typedef struct s_input	t_input;
+typedef struct s_philo	t_philo;
+typedef struct s_data	t_data;
 
 typedef struct s_input
 {
@@ -55,6 +55,7 @@ typedef struct s_data
 	int				dead;
 	pthread_mutex_t	dead_mutex;
 	int				limit_mode;
+	int				philos_finished;
 	long			start_time;
 	pthread_t		checker;
 }	t_data;

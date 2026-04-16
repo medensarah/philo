@@ -13,6 +13,7 @@ NAME = philo
 OBJDIR = obj
 
 SRCS = src/main.c src/task.c src/init.c src/checker.c src/thread.c \
+		src/one_philo.c \
 		src/utils/time.c src/utils/free.c src/utils/print.c\
 		src/parsing/verify.c src/parsing/nbr.c \
 

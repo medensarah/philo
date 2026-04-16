@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print.c                                            :+:      :+:    :+:   */
+/*   one_philo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/15 09:23:00 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/16 06:18:02 by smedenec         ###   ########.fr       */
+/*   Created: 2026/04/16 09:31:09 by smedenec          #+#    #+#             */
+/*   Updated: 2026/04/16 09:31:32 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../philo.h"
+#include "../philo.h"
 
-void	print(t_philo *philo, char *msg)
+void	*philo_alone(t_philo *philo)
 {
-	long	now;
-
+	pthread_mutex_lock(philo->left_fork);
 	pthread_mutex_lock(&philo->data->print_mutex);
-	if (!philo->data->dead)
-	{
-		now = get_time() - philo->data->start_time;
-		printf("%ld %d %s\n", now, philo->id, msg);
-	}
+	printf("%ld %d has taken a fork\n",
+		get_time() - philo->data->start_time, philo->id);
 	pthread_mutex_unlock(&philo->data->print_mutex);
+	ft_usleep(philo->data->input.time_to_die, philo->data);
+	return (NULL);
 }

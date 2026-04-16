@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/14 08:49:17 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/14 09:07:13 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/16 08:22:19 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,19 @@ long	get_time(void)
 void	ft_usleep(long milisec, t_data *data)
 {
 	long	start;
+	int		d;
 
+	pthread_mutex_lock(&data->dead_mutex);
+	d = data->dead;
+	pthread_mutex_unlock(&data->dead_mutex);
 	start = get_time();
-	while (!data->dead)
+	while (!d)
 	{
 		if (get_time() - start >= milisec)
 			break ;
 		usleep(100);
+		pthread_mutex_lock(&data->dead_mutex);
+		d = data->dead;
+		pthread_mutex_unlock(&data->dead_mutex);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 23:46:33 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/15 09:26:26 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/16 07:47:25 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	init_data(t_data *data)
 		data->limit_mode = 0;
 	else
 		data->limit_mode = 1;
+	data->philos_finished = 0;
 	data->start_time = get_time();
 }
 
