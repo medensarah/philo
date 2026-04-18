@@ -6,7 +6,7 @@
 /*   By: smedenec <smedenec@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 13:57:57 by smedenec          #+#    #+#             */
-/*   Updated: 2026/04/16 09:43:09 by smedenec         ###   ########.fr       */
+/*   Updated: 2026/04/18 08:58:04 by smedenec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	*boulot_dodo(void *arg)
 	while (1)
 	{
 		if (philo->data->dead)
+			break ;
+		if (!take_forks(philo))
 			break ;
 		spaghetti(philo);
 		if (philo->data->dead)
